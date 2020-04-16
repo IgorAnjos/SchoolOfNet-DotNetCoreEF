@@ -1,0 +1,36 @@
+@model IEnumerable<SchoolOfNetStudy_DoeNetCoreEF.Models.Product>
+
+@{
+    ViewData["Title"] = "Produto";
+}
+
+<div>
+    <a class="btn btn-success" href="https://localhost:5001/Product/Add">Adicionar</a>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Validade</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var product in Model)
+      {
+        <tr>
+        <td scope="row">@product.ProductId</td>
+        <td>@product.Name</td>
+        <td>@product.Price</td>
+        <td>@product.Validity</td>
+        <td>
+          <a class="btn btn-outline-info" href="/Product/Edit/@product.ProductId">Editar</a>
+          <a class="btn btn-outline-danger" href="/Product/Del/@product.ProductId">Deletar</a>
+        </td>
+        </tr>
+      }    
+        
+  </tbody>
+</table
